@@ -9,6 +9,6 @@ ENV TEAMCITY_DOWNLOAD_URL="https://download.jetbrains.com/teamcity/TeamCity-"$TE
 ENV TEAMCITY_DATA_PATH /mnt/teamcity
 VOLUME $TEAMCITY_DATA_PATH
 
-RUN wget -O - $TEAMCITY_DOWNLOAD_URL | tar xz -C /opt
+RUN wget -qO - $TEAMCITY_DOWNLOAD_URL | tar xz -C /opt
 
 CMD ["/opt/TeamCity/bin/teamcity-server.sh", "run"]
