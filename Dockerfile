@@ -3,13 +3,12 @@ MAINTAINER Alexander Gorokhov <sashgorokhov@gmail.com>
 
 EXPOSE 8111
 
-ARG teamcity_version="9.1.6"
-ARG teamcity_download_url="http://download.jetbrains.com/teamcity/TeamCity-"${teamcity_version}".tar.gz"
-ARG teamcity_data_path="/mnt/teamcity"
+ENV TEAMCITY_VERSION="9.1.6"
+ENV TEAMCITY_DOWNLOAD_URL="https://download.jetbrains.com/teamcity/TeamCity-"$TEAMCITY_VERSION".tar.gz"
 
-ENV TEAMCITY_DATA_PATH ${teamcity_data_path}
+ENV TEAMCITY_DATA_PATH /mnt/teamcity
 VOLUME $TEAMCITY_DATA_PATH
 
-RUN wget -qO - https://download.jetbrains.com/teamcity/TeamCity-${teamcity_version}.tar.gz | tar xz -C /opt
+RUN wget -O - $TEAMCITY_DOWNLOAD_URL | tar xz -C /opt
 
 CMD ["/opt/TeamCity/bin/teamcity-server.sh", "run"]
