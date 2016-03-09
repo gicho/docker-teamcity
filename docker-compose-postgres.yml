@@ -1,0 +1,21 @@
+version: '2'
+services:
+  teamcity:
+    restart: unless-stopped
+    build: .
+    ports:
+      - "0.0.0.0:8111:8111"
+    volumes:
+      - "/mnt/teamcity:/mnt/teamcity"
+      - "/mnt/teamcity_logs:/mnt/teamcity_logs"
+    links:
+      - "postgres:postgres"
+    environment:
+      DATABASE: POSTGRES
+  postgres:
+    restart: unless-stopped
+    image: postgres:9.4
+    environment:
+      POSTGRES_USER: teamcity
+      POSTGRES_PASSWORD: teamcity
+      POSTGRES_DB: teamcity
