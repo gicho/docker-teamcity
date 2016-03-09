@@ -30,6 +30,13 @@ $ docker run --name teamcity -p 8111:8111 -d -v /mnt/teamcity:/mnt/teamcity  sas
 
 To start teamcity agents, you can use [teamcity agent docker image](https://hub.docker.com/r/sashgorokhov/teamcity-agent). 
 
+
+# Using with PostgreSQL external database
+Example compose file: [compose file](https://github.com/sashgorokhov/docker-teamcity/blob/master/docker-compose-postgres.yml)
+
+Simply specify environment variable `DATABASE=POSTGRES` (Uppercase only), and script will download approtiate driver for teamcity on server startup.
+
+
 # Supported Docker versions
 
 This image is officially supported on Docker version 1.10.2.
