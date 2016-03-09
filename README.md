@@ -19,7 +19,8 @@ $ docker run --name teamcity -p 8111:8111 -d sashgorokhov/teamcity
 ```
 
 This will start a Teamcity server listening on the default port of 8111.
-Access it via `http://localhost:8111` or `http://host-ip:8111` in a browser.
+Wait a couple of minutes, teamcity is rather heavy machine and needs some time to startup.
+Then access it via `http://localhost:8111` or `http://host-ip:8111` in a browser.
 Image's supported volumes:
 - `/mnt/teamcity` - teamcity's data directory
 
