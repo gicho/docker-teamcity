@@ -1,49 +1,10 @@
 version: '2'
 services:
   teamcity:
+    restart: unless-stopped
     image: sashgorokhov/teamcity
     ports:
       - "0.0.0.0:8111:8111"
     volumes:
       - "/mnt/teamcity:/mnt/teamcity"
       - "/mnt/teamcity_logs:/mnt/teamcity_logs"
-      - "/var/run/docker.sock:/var/run/docker.sock"
-      - "/usr/bin/docker:/bin/docker"
-      - "/usr/local/bin/docker-compose:/bin/docker-compose"
-      - "/usr/local/bin/docker-machine:/bin/docker-machine"
-  teamcity_agent_1:
-    image: sashgorokhov/teamcity-agent:python2-python3
-    volumes:
-      - "/mnt/teamcity_agent_1:/opt/teamcity_agent"
-      - "/var/run/docker.sock:/var/run/docker.sock"
-      - "/usr/bin/docker:/bin/docker"
-      - "/usr/local/bin/docker-compose:/bin/docker-compose"
-      - "/usr/local/bin/docker-machine:/bin/docker-machine"
-    links:
-      - "teamcity:teamcity"
-    environment:
-      SERVER_URL: teamcity:8111
-  teamcity_agent_2:
-    image: sashgorokhov/teamcity-agent:python2-python3
-    volumes:
-      - "/mnt/teamcity_agent_2:/opt/teamcity_agent"
-      - "/var/run/docker.sock:/var/run/docker.sock"
-      - "/usr/bin/docker:/bin/docker"
-      - "/usr/local/bin/docker-compose:/bin/docker-compose"
-      - "/usr/local/bin/docker-machine:/bin/docker-machine"
-    links:
-      - "teamcity:teamcity"
-    environment:
-      SERVER_URL: teamcity:8111
-  teamcity_agent_3:
-    image: sashgorokhov/teamcity-agent:python2-python3
-    volumes:
-      - "/mnt/teamcity_agent_3:/opt/teamcity_agent"
-      - "/var/run/docker.sock:/var/run/docker.sock"
-      - "/usr/bin/docker:/bin/docker"
-      - "/usr/local/bin/docker-compose:/bin/docker-compose"
-      - "/usr/local/bin/docker-machine:/bin/docker-machine"
-    links:
-      - "teamcity:teamcity"
-    environment:
-      SERVER_URL: teamcity:8111
