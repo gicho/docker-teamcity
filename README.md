@@ -32,6 +32,8 @@ To start teamcity agents, you can use [teamcity agent docker image](https://hub.
 
 
 # Using with PostgreSQL external database
+<b>Only 9.4 version is supported.</b>
+
 Example compose file: [compose file](https://github.com/sashgorokhov/docker-teamcity/blob/master/docker-compose-postgres.yml)
 
 Simply specify environment variable `DATABASE=POSTGRES` (Uppercase only), and script will download approtiate driver for teamcity on server startup.
