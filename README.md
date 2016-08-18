@@ -2,7 +2,7 @@
 
 -	[`9.1.6`, `latest` (*Dockerfile*)](https://github.com/sashgorokhov/docker-teamcity/blob/master/Dockerfile)
 
-![](https://badge.imagelayers.io/sashgorokhov/teamcity:latest.svg)
+[![](https://images.microbadger.com/badges/image/sashgorokhov/teamcity.svg)](http://microbadger.com/images/sashgorokhov/teamcity "Get your own image badge on microbadger.com")
 
 # TeamCity
 
